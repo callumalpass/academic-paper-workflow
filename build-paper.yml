@@ -22,7 +22,10 @@ jobs:
         wget https://github.com/jgm/pandoc/releases/download/3.1.2/pandoc-3.1.2-1-amd64.deb
         sudo dpkg -i pandoc-3.1.2-1-amd64.deb
         pandoc --version
-        curl -L -o bibliography.json https://www.dl.dropboxusercontent.com/scl/fi/it6u163qx06t9rwuj543d/bibliography.json?rlkey=llnfj4iyik8zzd5szjum3tpfd&dl=1
+        
+    - name: Download bibliography
+      run: |
+        wget https://raw.githubusercontent.com/callumalpass/bibliography/main/bibliography.json
 
     - name: Generate documents
       run: |
