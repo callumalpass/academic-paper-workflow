@@ -9,7 +9,6 @@ A GitHub Actions workflow for automatically building academic papers written in 
 - Processes Obsidian-style wikilinks (`[[Link]]` and `[[Link|Text]]`)
 - Creates GitHub releases with the output files
 - Deploys HTML versions to GitHub Pages
-- Includes a paper dashboard with statistics and downloads
 
 ## Usage
 
@@ -61,7 +60,7 @@ git push origin v0.1
 
 ## Required Files
 
-- `bibliography.json`: Your bibliography file (automatically downloaded from Dropbox in the workflow)
+- `bibliography.json`: Your bibliography file (automatically downloaded from Github in the workflow)
 - `style/chicago-fullnote-bibliography.csl`: Citation style file
 - `style/style.css`: CSS styles for HTML output
 
