@@ -13,29 +13,46 @@ A GitHub Actions workflow for automatically building academic papers written in 
 
 ## Usage
 
-This repository is designed to be used as a submodule in your academic writing repositories.
+This repository provides a reusable GitHub Actions workflow for academic paper repositories.
 
-### Setup as a Submodule
+### Setup Using Reusable Workflow (Recommended)
 
-1. In your academic paper repository, add this repository as a submodule:
+1. In your academic paper repository, create a workflow file:
 
 ```bash
 mkdir -p .github/workflows
-git submodule add https://github.com/YOUR_USERNAME/academic-paper-workflow.git .github/workflows
-git commit -m "Add academic paper workflow submodule"
-git push
 ```
 
-2. Create the required style directory and files in your main repository:
+2. Create a file named `build-paper.yml` in the `.github/workflows` directory with the following content:
+
+```yaml
+name: Build Academic Paper
+
+on:
+  push:
+    tags:
+      - 'v*'
+  # Optional: Add manual trigger
+  workflow_dispatch:
+
+jobs:
+  build-paper:
+    uses: callumalpass/academic-paper-workflow/.github/workflows/build-paper.yml@main
+    # Optional: You can customize the bibliography URL
+    # with:
+    #   bibliography_url: 'https://your-custom-url/bibliography.json'
+```
+
+3. Create the required style directory and files in your main repository:
 
 ```bash
 mkdir -p style
 # Add your chicago-fullnote-bibliography.csl and style.css files
 ```
 
-3. Ensure your Markdown files follow the naming convention: `ms.*.md` (e.g., `ms.introduction.md`, `ms.main.md`)
+4. Ensure your Markdown files follow the naming convention: `ms.*.md` (e.g., `ms.introduction.md`, `ms.main.md`)
 
-4. Push a tag to trigger the workflow:
+5. Push a tag to trigger the workflow:
 
 ```bash
 git tag v0.1

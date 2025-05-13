@@ -1,0 +1,15 @@
+name: Build Academic Paper
+
+on:
+  push:
+    tags:
+      - 'v*'
+  # Optional: Add manual trigger
+  workflow_dispatch:
+
+jobs:
+  build-paper:
+    uses: callumalpass/academic-paper-workflow/.github/workflows/build-paper.yml@main
+    # Optional: You can customize the bibliography URL
+    # with:
+    #   bibliography_url: 'https://your-custom-url/bibliography.json'

@@ -1,6 +1,13 @@
 name: Build Academic Paper
 
 on:
+  workflow_call:
+    inputs:
+      bibliography_url:
+        description: 'URL to the bibliography.json file'
+        required: false
+        type: string
+        default: 'https://raw.githubusercontent.com/callumalpass/bibliography/main/bibliography.json'
   push:
     tags:
       - 'v*'
@@ -25,7 +32,7 @@ jobs:
         
     - name: Download bibliography
       run: |
-        wget https://raw.githubusercontent.com/callumalpass/bibliography/main/bibliography.json
+        wget ${{ inputs.bibliography_url || 'https://raw.githubusercontent.com/callumalpass/bibliography/main/bibliography.json' }}
 
     - name: Generate documents
       run: |
