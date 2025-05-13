@@ -68,13 +68,18 @@ jobs:
           echo "No output files found. Skipping release creation."
         fi
 
+    - name: Checkout workflow repository for dashboard
+      uses: actions/checkout@v3
+      with:
+        repository: callumalpass/academic-paper-workflow
+        path: academic-paper-workflow
+        
     - name: Generate Dashboard
       run: |
-        mkdir -p output/dashboard
-        # Copy dashboard files directly to output directory
-        cp -r $GITHUB_WORKSPACE/dashboard/* output/dashboard/
-        mkdir -p scripts
-        cp -r $GITHUB_WORKSPACE/scripts/* scripts/
+        mkdir -p output/dashboard scripts
+        # Copy dashboard files from the workflow repository
+        cp -r academic-paper-workflow/dashboard/* output/dashboard/
+        cp -r academic-paper-workflow/scripts/* scripts/
         export OUTPUT_DIR="output"
         export DASHBOARD_DIR="dashboard"
         node scripts/generate-dashboard-data.js
