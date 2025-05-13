@@ -9,6 +9,7 @@ A GitHub Actions workflow for automatically building academic papers written in 
 - Processes Obsidian-style wikilinks (`[[Link]]` and `[[Link|Text]]`)
 - Creates GitHub releases with the output files
 - Deploys HTML versions to GitHub Pages
+- Includes a paper dashboard with statistics and downloads
 
 ## Usage
 
