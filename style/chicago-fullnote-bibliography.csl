@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
+  <info>
+    <title>Chicago Manual of Style 17th edition (full note)</title>
+    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography</id>
+    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography" rel="self"/>
+    <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
+    <author>
+      <name>Julian Onions</name>
+      <email>julian.onions@gmail.com</email>
+    </author>
+    <contributor>
+      <name>Simon Kornblith</name>
+      <email>simon@simonster.com</email>
+    </contributor>
+    <contributor>
+      <name>Elena Razlogova</name>
+      <email>elena.razlogova@gmail.com</email>
+    </contributor>
+    <contributor>
+      <name>Frank Bennett</name>
+      <email>biercenator@gmail.com</email>
+    </contributor>
+    <contributor>
+      <name>Andrew Dunning</name>
+      <email>andrew.dunning@utoronto.ca</email>
+    </contributor>
+    <contributor>
+      <name>Sebastian Karcher</name>
+    </contributor>
+    <contributor>
+      <name>Brenton M. Wiernik</name>
+    </contributor>
+    <category citation-format="note"/>
+    <category field="generic-base"/>
+    <summary>Chicago format with full notes and bibliography</summary>
+    <updated>2017-10-12T12:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <locale xml:lang="en">
+    <terms>
+      <term name="editor" form="verb-short">ed.</term>
+      <term name="translator" form="verb-short">trans.</term>
+      <term name="translator" form="short">trans.</term>
+      <term name="editortranslator" form="verb-short">ed. and trans.</term>
+      <term name="editortranslator" form="verb">Edited and translated by</term>
+      <term name="translator" form="short">trans.</term>
+    </terms>
+  </locale>
+  <!-- Note: This is a shortened version of the CSL file for example purposes -->
+  <!-- The actual full file would contain many more rules for different citation types -->
+  <macro name="editor-translator">
+    <group delimiter=", ">
+      <choose>
+        <if variable="author">
+          <group delimiter=" ">
+            <choose>
+              <if variable="container-author">
+                <group>
+                  <names variable="container-author">
+                    <label form="verb-short" text-case="lowercase" suffix=" "/>
+                    <name and="text" delimiter=", "/>
+                  </names>
+                </group>
+              </if>
+            </choose>
+          </group>
+          <names variable="editor translator" delimiter=", ">
+            <label form="verb-short" text-case="lowercase" suffix=" "/>
+            <name and="text" delimiter=", "/>
+          </names>
+        </if>
+      </choose>
+    </group>
+  </macro>
+  <macro name="secondary-contributors-note">
+    <choose>
+      <if type="chapter entry-dictionary entry-encyclopedia paper-conference" match="none">
+        <text macro="editor-translator"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="container-contributors-note">
+    <choose>
+      <if type="chapter entry-dictionary entry-encyclopedia paper-conference" match="any">
+        <text macro="editor-translator"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="author">
+    <names variable="author">
+      <name and="text" name-as-sort-order="first" sort-separator=", " delimiter=", " delimiter-precedes-last="always"/>
+      <label form="short" prefix=", "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="title-short"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if variable="title" match="none">
+        <choose>
+          <if type="personal_communication" match="none">
+            <text variable="container-title" text-case="title"/>
+          </if>
+        </choose>
+      </if>
+      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+        <text variable="title" text-case="title" font-style="italic"/>
+        <group delimiter=" " prefix=", ">
+          <text term="version"/>
+          <text variable="version"/>
+        </group>
+      </else-if>
+      <else-if variable="reviewed-author">
+        <choose>
+          <if variable="reviewed-title">
+            <group delimiter=", ">
+              <text variable="title" text-case="title" quotes="true"/>
+              <group delimiter=", ">
+                <text variable="reviewed-title" text-case="title" font-style="italic" prefix="review of "/>
+                <names variable="reviewed-author">
+                  <label form="verb-short" text-case="lowercase" suffix=" "/>
+                  <name and="text" delimiter=", "/>
+                </names>
+              </group>
+            </group>
+          </if>
+          <else>
+            <group delimiter=", ">
+              <text variable="title" text-case="title" font-style="italic" prefix="Review of "/>
+              <names variable="reviewed-author">
+                <label form="verb-short" text-case="lowercase" suffix=" "/>
+                <name and="text" delimiter=", "/>
+              </names>
+            </group>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="thesis" match="any">
+        <text variable="title" text-case="title" font-style="italic"/>
+      </else-if>
+      <else>
+        <text variable="title" text-case="title" quotes="true"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="citation-locator">
+    <group delimiter=" ">
+      <choose>
+        <if locator="page chapter book" match="any">
+          <label variable="locator" form="short"/>
+        </if>
+      </choose>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true">
+    <layout suffix="." delimiter="; ">
+      <choose>
+        <if position="ibid-with-locator">
+          <group delimiter=", ">
+            <text term="ibid"/>
+            <text macro="citation-locator"/>
+          </group>
+        </if>
+        <else-if position="ibid">
+          <text term="ibid"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text macro="author-short"/>
+            <text macro="citation-locator"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="true" et-al-min="11" et-al-use-first="7" entry-spacing="0">
+    <sort>
+      <key macro="author"/>
+      <key variable="issued"/>
+    </sort>
+    <layout suffix=".">
+      <text macro="author" suffix=". "/>
+      <text macro="title" suffix=". "/>
+      <group delimiter=", ">
+        <text variable="container-title" font-style="italic"/>
+        <text variable="volume"/>
+        <text variable="issue"/>
+        <text variable="publisher"/>
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+        <text variable="page"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>

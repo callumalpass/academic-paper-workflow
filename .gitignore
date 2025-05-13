@@ -1,0 +1,31 @@
+# Output files
+output/
+
+# Bibliography file (downloaded during workflow)
+bibliography.json
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# Pandoc cache
+.pandoc-cache/
+
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb

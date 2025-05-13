@@ -1,0 +1,121 @@
+/* CSS for HTML output */
+body {
+  font-family: "Cochineal", "Georgia", serif;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #555;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  background-color: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f0f0f0;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 3px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+.footnotes {
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+  padding-top: 1em;
+  margin-top: 2em;
+}
+
+#TOC {
+  background-color: #f8f8f8;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 3px;
+}
+
+#TOC ul {
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+#TOC a {
+  color: #555;
+}
+
+.title {
+  text-align: center;
+}
+
+.author, .date {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
+.abstract {
+  font-style: italic;
+  margin: 1em 3em;
+}
