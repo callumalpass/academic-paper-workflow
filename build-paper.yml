@@ -61,6 +61,15 @@ jobs:
           echo "No output files found. Skipping release creation."
         fi
 
+    - name: Generate Dashboard
+      run: |
+        mkdir -p dashboard scripts
+        cp -r $GITHUB_WORKSPACE/dashboard ./dashboard
+        cp -r $GITHUB_WORKSPACE/scripts ./scripts
+        export OUTPUT_DIR="output"
+        export DASHBOARD_DIR="dashboard"
+        node scripts/generate-dashboard-data.js
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
